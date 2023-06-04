@@ -12,10 +12,18 @@ Dev.create(name: "Gazorpazop")
 
 puts "Creating freebies..."
 
-# ***************************************************************
-# * TODO: create freebies! Remember, a freebie belongs to a dev *
-# * and a freebie belongs to a company.                         *
-# ***************************************************************
-# Create freebies Here
+devs = Dev.all
+companies = Company.all
+
+devs.each do |dev|
+  companies.each do |company|
+    Freebie.create(
+      item_name: "Sample Item",
+      value: 10,
+      dev: dev,
+      company: company
+    )
+  end
+end
 
 puts "Seeding done!"
